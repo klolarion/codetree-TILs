@@ -20,15 +20,17 @@ public class Main {
 
 
         int manNeed = 0;
-
         for(int i=0; i<restaurantCount; i++){
-            int tmp = customers[i] - teamLeader;
+            
+            int tmp = 0;
+            tmp = customers[i] - teamLeader; 
             if(tmp<=0){
                 manNeed++;
                 continue;
             }
             manNeed++;
             int tmp2 = tmp/team;
+            manNeed += tmp2;
             
 
             int plus = tmp%team;
