@@ -1,22 +1,26 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        
-        int restaurantCount = Integer.parseInt(bf.readLine());
+    static int restaurantCount;
+    static int[] customers;
+    static int teamLeader, team;
 
-        String[] arr1 = bf.readLine().split(" ");
-        int[] customers = new int[arr1.length];
-        for(int i = 0; i < arr1.length; i++) {
-            customers[i] = Integer.parseInt(arr1[i]);
+    public static void main(String[] args) throws IOException {
+        
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        restaurantCount = Integer.parseInt(br.readLine());
+        customers = new int[restaurantCount];
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        for (int i=0; i < restaurantCount; i++) {
+            customers[i] = Integer.parseInt(st.nextToken());
         }
 
-        String[] arr2 = bf.readLine().split(" ");
-        int teamLeader = Integer.parseInt(arr2[0]);
-        int team = Integer.parseInt(arr2[1]);
+        st = new StringTokenizer(br.readLine());
+        teamLeader = Integer.parseInt(st.nextToken());
+        team = Integer.parseInt(st.nextToken());
 
         long manNeed = 0;
         for(int i = 0; i < restaurantCount; i++) {
@@ -32,7 +36,7 @@ public class Main {
             }
         }
 
-        bf.close();
+        br.close();
         System.out.println(manNeed);
     }
 }
