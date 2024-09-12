@@ -18,7 +18,7 @@ public class Main {
         int teamLeader = Integer.parseInt(arr2[0]);
         int team = Integer.parseInt(arr2[1]);
 
-        int manNeed = 0;  // 숫자가 클 수 있으므로 long 타입 사용
+        long manNeed = 0;
         for(int i = 0; i < restaurantCount; i++) {
             // 각 식당마다 팀 리더 1명 할당
             manNeed++;
