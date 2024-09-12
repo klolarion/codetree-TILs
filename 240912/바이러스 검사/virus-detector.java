@@ -22,21 +22,17 @@ public class Main {
         int manNeed = 0;
         for(int i=0; i<restaurantCount; i++){
             
-            int tmp = 0;
-            tmp = customers[i] - teamLeader; 
-            if(tmp<=0){
-                manNeed++;
-                continue;
-            }
-            manNeed++;
-            int tmp2 = tmp/team;
-            manNeed += tmp2;
             
+            manNeed++;
+            
+            
+            int remainingCustomers = customers[i] - teamLeader;
 
-            int plus = tmp%team;
-            if(plus > 0){
-                manNeed++;
+
+            if (remainingCustomers > 0) {
+                manNeed += (remainingCustomers + team - 1) / team;
             }
+            
         }
 
         bf.close();
