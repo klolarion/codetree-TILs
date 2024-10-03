@@ -1,33 +1,47 @@
 import java.util.*;
 
-
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        int n = sc.nextInt(); // 입력 개수 받음
         List<Integer> list = new ArrayList<>();
-        while(sc.hasNext()){
-            list.add(sc.nextInt());
+        
+        for (int i = 0; i < n; i++) {
+            list.add(sc.nextInt()); // 입력값을 리스트에 추가
         }
 
+        // 리스트 정렬
+        Collections.sort(list);
 
+        // 투 포인터 초기화
+        int left = 0;
+        int right = list.size() - 1;
+        int minSum = Integer.MAX_VALUE; // 합의 최소 절대값을 저장
+        int closestSum = 0; // 가장 0에 가까운 합을 저장
 
-        int result = 0;
-        int min = Integer.MAX_VALUE;
-        
-        for(int i=0; i<list.size(); i++){
-            int a = list.get(i);
-            
-            for(int j=1; j<list.size(); j++){
-                int b = list.get(j);
-                result = Math.abs(a+b);
-                if(result < Math.abs(min)){
-                    min = a+b;
-                }
-            
+        while (left < right) {
+            int sum = list.get(left) + list.get(right);
+
+            // 0에 더 가까운 합인지 확인
+            if (Math.abs(sum) < Math.abs(minSum)) {
+                minSum = sum;
+                closestSum = sum;
+            }
+
+            // 합이 0보다 크면 right를 왼쪽으로 이동
+            if (sum > 0) {
+                right--;
+            } 
+            // 합이 0보다 작으면 left를 오른쪽으로 이동
+            else if (sum < 0) {
+                left++;
+            } 
+            // 합이 정확히 0이면 그 자체가 최소값이므로 종료
+            else {
+                break;
             }
         }
 
-        System.out.println(min);
+        System.out.println(closestSum);
     }
 }
