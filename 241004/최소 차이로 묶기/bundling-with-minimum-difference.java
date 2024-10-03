@@ -38,7 +38,6 @@ public class Main {
             for(int j = 0; j< b.size(); j++){
                 if(Math.abs(a.get(i) - b.get(i)) < tmp){
                     tmp = Math.abs(a.get(i) - b.get(i));
-                    System.out.println(tmp);
                     low_j = j;
                 }
             }
@@ -50,7 +49,6 @@ public class Main {
 
         // 결과 출력
         System.out.println(totalDifference);
-
 
     }
 }
