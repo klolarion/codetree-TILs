@@ -38,6 +38,7 @@ public class Main {
             for(int j = 0; j< b.size(); j++){
                 if(Math.abs(a.get(i) - b.get(i)) < tmp){
                     tmp = Math.abs(a.get(i) - b.get(i));
+                    System.out.println(tmp);
                     low_j = j;
                 }
             }
