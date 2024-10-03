@@ -5,7 +5,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(); // 입력 개수 받음
         List<Integer> list = new ArrayList<>();
-        
+
         for (int i = 0; i < n; i++) {
             list.add(sc.nextInt()); // 입력값을 리스트에 추가
         }
